@@ -1,0 +1,9 @@
+<h1>MentorSubcats#new</h1>
+<div class="dogs">
+  <% @categories.each do |category| %>
+    <h3><%= category.name %></h3>
+    <% category.subcategories.each do |subcat| %>
+      <input type="checkbox" value="<%= subcat.name %>"/> <%= subcat.name %>
+    <% end %>
+  <% end %>
+</div>

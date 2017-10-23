@@ -1,0 +1,79 @@
+<header>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <%= link_to "Kaizen", categories_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+<% if logged_in? %>
+  <% if current_user.is_mentor == false%>
+
+    <li class="nav-item">
+    <%= link_to "Book A Mentor", categories_path, class: "nav-link" %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "Profile", current_user, class: "nav-link"%>
+    </li>
+  <%end%>
+
+  <% if current_user.is_mentor %>
+
+    <li class="nav-item">
+      <%= link_to "Profile", mentor_info_path(current_user.mentor_info.id), class: "nav-link" %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "Edit", edit_mentor_info_path(current_user.mentor_info.id), class: "nav-link" %>
+    </li>
+
+
+
+  <% end %>
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    notification
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </li>
+
+<li class="nav-item">
+  <%= link_to "Log Out", logout_path, method: :delete, class: "nav-link" %>
+</li>
+<% else%>
+  <li class="nav-item">
+    <%= link_to "Log In", login_path, class: "nav-link" %>
+  </li>
+
+  <li class="nav-item">
+    <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+  </li>
+
+
+
+
+
+<% end%>
+
+
+    </ul>
+  </div>
+</nav>
+
+
+
+
+    </ul>
+
+  </div>
+</header>

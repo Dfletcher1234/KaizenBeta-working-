@@ -1,0 +1,2 @@
+module MentorAvailabilitiesHelper
+end

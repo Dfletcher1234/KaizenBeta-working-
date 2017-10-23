@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mentor_id: 
+  student_id: 
+  date: 1
+
+two:
+  mentor_id: 
+  student_id: 
+  date: 1

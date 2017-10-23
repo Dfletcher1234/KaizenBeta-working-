@@ -1,0 +1,49 @@
+<script>
+function initMap() {
+  var current_user_codinates = <%= Geocoder.coordinates(current_user.postal_code)%>
+  var myLatLng = { lat:  current_user_codinates[0], lng:  current_user_codinates[1]};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: myLatLng
+  });
+
+  var logs = <%= postal_code_to_long_lat(@category)%>
+
+  for(var i=0;i < logs.length;i++){
+    //console.log(logs[i][0]);
+
+  var marker = new google.maps.Marker({
+    position: {lat: logs[i][0], lng: logs[i][1]},
+    map: map,
+    title: "yolo"
+  });
+}
+}
+
+</script>
+
+<h1><%= @category.name %></h1>
+
+<div id="map" style="height: 300px; width: 100%;"></div>
+
+<div class="mentor_info">
+  <div class="row">
+    <% @category.subcategories.each do |subc| %>
+      <div class="card col-md-4">
+     <p class="card-text">
+       <div class="card-body">
+         <h4 class="card-title"><%= link_to subc.name, subcategory_path(subc) %></h4>
+       </div>
+     </p>
+   </div>
+<%end%>
+   </div>
+ </div>
+
+
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCaqdxtLVgAPgOwN_gZhMfeascKFwin1M&callback=initMap">
+</script>

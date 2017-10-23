@@ -1,0 +1,5 @@
+<h1>This is our Index of Subs</h1>
+
+<% @subcategories.each do |subc| %>
+<li> <%= link_to subc.name,  category_subcategories_path  %> </li>
+<% end%>
