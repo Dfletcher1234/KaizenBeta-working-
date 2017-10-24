@@ -66,6 +66,7 @@ input:checked + .slider:before {
 h1 {
   font-family: 'Baloo Chettan';
   padding: 40px;
+  text-align: center;
 }
 
 .mentorcats {
@@ -76,9 +77,23 @@ h1 {
 
 h3  {
   padding: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+
 }
 
 #mentor_info_summary{
   width: 50%;
   padding-left: 50px;
+}
+
+.student-details {
+  float: right;
+  position: relative;
+  right: 200px;
+  margin-top: -580px ;
+}
+
+.mentor-info-container {
+  position: relative;
+  left: 100px;
 }

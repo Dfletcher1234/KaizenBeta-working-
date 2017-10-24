@@ -75,12 +75,12 @@ z-index: 5;
 
  html {
    margin: 2rem;
-   background-color: #DCDCDC;
+  //  background-color: #ff006d;
    font-family: 'Cinzel', serif;
  }
 
  .bg-light {
-   background-color: #CD5360 !important;
+   background-color: #ff006d !important;
 
  }
 
@@ -103,5 +103,5 @@ z-index: 5;
  .title > h3 {
    font-family: 'Baloo Chettan';
    font-size: 300% !important;
-
+   text-align: center;
  }
