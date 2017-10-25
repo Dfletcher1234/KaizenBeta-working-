@@ -15,11 +15,18 @@
 </div>
 
 <div class="student-details">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          First Name
 
     <% if @user.is_mentor  %>
 
       <% current_user.mentor_bookings.each do |apt| %>
-      Student:<%= apt.student.first_name %> <%= apt.student.last_name %> <br>
+      <th>Student:<%= apt.student.first_name %> <%= apt.student.last_name %>
+        </th> <br>
+        </tr>
       Email:<%= apt.student.email %>
 
       <div class="mentor_booking">
@@ -69,3 +76,32 @@
   </label>
   <%end%>
   </div>
+
+
+
+
+        <th>Last Name</th>
+        <th>Username</th>
+
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
