@@ -10,6 +10,10 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end
 
+  test "testing_mentor_is_false_default" do
+    assert_equal @user.is_mentor, false
+  end
+
   test "test_every_user_has_first_name" do
     @user.first_name = nil
     refute @user.valid?
@@ -26,9 +30,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "testing_user_is_a_mentor" do
-    @user.is_mentor = true
-    refute @user.valid?
+    assert_includes User.mentors, users(:mentor)
+    refute_includes 
   end
+
+  # test "testing_user_password_digest_valid"
+
 
 
 end
