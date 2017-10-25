@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  mentor_id: 
-  availability: 
-  sub_categories_id: 1
+  user_id:
+  availability:
+  summary:
 
 two:
-  mentor_id: 
-  availability: 
-  sub_categories_id: 1
+  user_id:
+  availability:
+  summary:

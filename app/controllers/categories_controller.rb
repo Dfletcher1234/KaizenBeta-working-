@@ -10,9 +10,4 @@ end
     @category = Category.find(params[:id])
   end
 
-
-
-
-
-
 end

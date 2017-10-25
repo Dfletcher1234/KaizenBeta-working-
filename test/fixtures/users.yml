@@ -1,23 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+valid:
+  first_name: Jane
+  last_name: Doe
+  email: jd@example.com
+  is_mentor: false
+  password_digest: 123456
+  postal_code: M4Y0A3
 
-one:
-  first_name: MyString
-  string,: MyString
-  last_name: 
-  email: 
-  role: 
-  phone: 
-  password_digest: 
-  remember_digest: 
-  availability: false
 
-two:
-  first_name: MyString
-  string,: MyString
-  last_name: 
-  email: 
-  role: 
-  phone: 
-  password_digest: 
-  remember_digest: 
-  availability: false
+student:
+  first_name: John
+  last_name: Doe
+  email: john@example.com
+  is_mentor: false
+  password_digest: 123456
+  postal_code: M4Y0A3
+
+mentor:
+    first_name: Viki
+    last_name: V
+    email: viki@example.com
+    is_mentor: true
+    password_digest: 123456
+    postal_code: M4Y0A3
