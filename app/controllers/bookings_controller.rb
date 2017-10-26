@@ -5,28 +5,24 @@ class BookingsController < ApplicationController
   end
 
   def create
-  @booking = Booking.new
-  @booking.mentor_id = params[:booking][:mentor_id]
-  @booking.student_id = current_user.id
-  @booking.booking_date = params[:booking][:booking_date]
-  @booking.booking_time = params[:booking][:booking_time]
+    @booking = Booking.new
+    @booking.mentor_id = params[:booking][:mentor_id]
+    @booking.student_id = current_user.id
+    @booking.booking_date = params[:booking][:booking_date]
+    @booking.booking_time = params[:booking][:booking_time]
+    @booking.status = 'false'
 
-
-     @booking.status = 'false'
     if @booking.save!
       flash[:notice] = "Booking successfully created"
       redirect_to root_url
-
     end
-
-
- end
+  end
 
  def index
     @bookings = Booking.all
   end
 
- def show
+  def show
     @booking = current_booking
   end
 
@@ -40,8 +36,17 @@ class BookingsController < ApplicationController
    booking_find.status = true
    booking_find.save
    render json: booking_find.status
-
  end
+
+ def notification
+   if current_user.is_mentor
+     number_of_notification = current_user.mentor_bookings.count
+  else
+     number_of_notification = current_user.student_bookings.count
+  end
+   render json: {number: number_of_notification}
+ end
+
 private
   def booking_params
     params.require(:booking).permit(:booking_date, :booking_time, :mentor_id, :student_id)
