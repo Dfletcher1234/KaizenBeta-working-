@@ -36,6 +36,7 @@ get '/mentor_availabilities', to: 'mentor_availabilities#update'
 
   resources :categories
   resources :subcategories
+  get '/bookings/notification', to: 'bookings#notification'
   resources :bookings
 
 
