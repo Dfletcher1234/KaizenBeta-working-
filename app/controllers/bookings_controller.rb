@@ -40,11 +40,21 @@ class BookingsController < ApplicationController
 
  def notification
    if current_user.is_mentor
-     number_of_notification = current_user.mentor_bookings.count
+     notifications = current_user.mentor_bookings.unconfirmed
+
   else
-     number_of_notification = current_user.student_bookings.count
+     notifications = current_user.student_bookings
   end
-   render json: {number: number_of_notification}
+  arr = []
+  notifications.each do |n|
+    hash = {}
+    hash[:name] = n.student.first_name
+    hash[:date] = n.booking_date.strftime("%m/%d/%Y")
+    hash[:time] = n.booking_time.strftime("%I:%M%p")
+    hash[:id] =  n.id
+    arr << hash
+  end
+   render json: {number: notifications.count, notification: arr}
  end
 
 private
