@@ -41,9 +41,10 @@ class BookingsController < ApplicationController
  def notification
    if current_user.is_mentor
      notifications = current_user.mentor_bookings.unconfirmed
-
+     url = "/mentor_infos/#{current_user.id}"
   else
-     notifications = current_user.student_bookings
+     notifications = current_user.student_bookings.where(status: false)
+    url = "/users/#{current_user.id}"
   end
   arr = []
   notifications.each do |n|
@@ -51,7 +52,8 @@ class BookingsController < ApplicationController
     hash[:name] = n.student.first_name
     hash[:date] = n.booking_date.strftime("%m/%d/%Y")
     hash[:time] = n.booking_time.strftime("%I:%M%p")
-    hash[:id] =  n.id
+    hash[:url] =  url
+    hash[:status] = n.status ? "Confirmed" : "Unconfirmed"
     arr << hash
   end
    render json: {number: notifications.count, notification: arr}

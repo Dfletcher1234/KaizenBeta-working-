@@ -10,13 +10,13 @@ var mentorInfoNotification = function(){
     var notification_data = document.querySelector(".dropdown-menu")
     notification_data.innerHTML = "";
     for (var i = 0; i < response.notification.length; i++) {
-      notification_data.innerHTML += "<span class='dropdown-item'>"+response.notification[i].name+ "<button class='button' id="+response.notification[i].id+">CONFIRM</button>"+"</span>"
+      notification_data.innerHTML += "<a class='dropdown-item' href="+response.notification[i].url+">"+response.notification[i].name+ " <small>"+response.notification[i].status+"<br/>Date:" + response.notification[i].date +"<br/>Time:" + response.notification[i].time +"</small></a>"
       //<span class="dropdown-item">Action</span>
     }
   })
 }
 
 
-setInterval(mentorInfoNotification, 5000)
+setInterval(mentorInfoNotification, 2000)
 
 // in controller check if user is a student or a mentor--use the booking status
