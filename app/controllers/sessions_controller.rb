@@ -8,11 +8,12 @@ class SessionsController < ApplicationController
       log_in user
       if user.is_mentor
         if user.mentor_info
-          redirect_to mentor_info_path(current_user.mentor_info.id)
+          redirect_to mentor_info_path(current_user.id)
         else
           redirect_to new_mentor_info_path
         end
       else
+
         redirect_to user_path(current_user.id)
       end
 

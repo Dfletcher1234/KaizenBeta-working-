@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.student_id = current_user.id
     @booking.booking_date = params[:booking][:booking_date]
     @booking.booking_time = params[:booking][:booking_time]
-    @booking.status = 'false'
+    @booking.status = false
 
     if @booking.save!
       flash[:notice] = "Booking successfully created"
@@ -39,6 +39,7 @@ class BookingsController < ApplicationController
  end
 
  def notification
+   return "not logged_in" unless current_user 
    if current_user.is_mentor
      notifications = current_user.mentor_bookings.unconfirmed
      url = "/mentor_infos/#{current_user.id}"

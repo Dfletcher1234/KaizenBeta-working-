@@ -1,7 +1,6 @@
 <h1><%= @mentor.first_name%> <%= @mentor.last_name %></h1>
 <p><%= image_tag @mentor.avatar.url (:medium) %>
 <div class="mentor-info-container">
-
 <% if @mentor.mentor_info %>
   <h3>Summary:</h3> <%= @mentor.mentor_info.summary %><br>
 
@@ -21,25 +20,13 @@
     <%= render "mentor_bookings", bookings: current_user.mentor_bookings.confirmed %>
   <%end%>
 
-  <%if @user.is_mentor == false %>
-   <%= render 'bookings/new' %>
-   <% else %>
-   <%= puts "you can't book an appointment" %>
-   <%end%>
+  <%if @user.is_mentor %>
 
-  <%if @user.is_mentor == true %>
-   <label class="switch", id="your_id">
-     <%if @user.mentor_info.availability == true %>
-
-     <input type="checkbox" value = 'true' checked = 'true'>
-
-     <span class="slider round", id="circle"></span>
-     <% else %>
-
-     <input type="checkbox" value = 'false' >
-     <span class="slider round", id="circle"></span>
-     <% end %>
-
-  </label>
+    <label class="switch", id="your_id">
+        <input type="checkbox"  <%= current_user.mentor_info.availability ? "checked": ""%>>
+        <span class="slider round", id="circle"></span>
+    </label>
+  <% else %>
+    <%= render 'bookings/new' %>
   <%end%>
-  </div>
+</div>
