@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   attr_accessor :name, :email
+
   def show
     @user = current_user
   end
@@ -17,9 +18,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       if @user.is_mentor
-        redirect_to addmentor_path
+        redirect_to new_mentor_info_path
       else
-        redirect_to profile_path
+        redirect_to user_path(current_user.id)
       end
     else
       render 'new'

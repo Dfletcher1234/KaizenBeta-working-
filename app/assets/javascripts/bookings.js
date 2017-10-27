@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
   var button = document.querySelectorAll('.button')
-
+  // var dissappear = document.querySelector('.please-dissappear')
   for (var i = 0; i < button.length; i++) {
   button[i].addEventListener('click', function(event){
     button = this
@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
       console.log(button);
       button.style.display = "none";
       button.parentNode.innerText += "CONFIRMED"
-
     }).failure(function(response){
       console.log("failed to render response");
     }).always(function(response){

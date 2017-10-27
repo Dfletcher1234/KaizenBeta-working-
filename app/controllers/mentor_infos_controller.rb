@@ -1,18 +1,17 @@
 class MentorInfosController < ApplicationController
+  before_action :en_logged_in
+  before_action :is_mentor, only: [:create,:update,:edit]
   def index
     @mentor_infos = MentorInfo.all
   end
 
   def show
-
-
     @user = current_user
-    @mentor_info = MentorInfo.find(params[:id])
-    @mentor = @mentor_info.user
+    @mentor = User.find(params[:id])
+    @mentor_info = @mentor.mentor_info
+
     @bookings = Booking.all
     @booking = Booking.new
-
-
   end
 
   def new
@@ -33,7 +32,8 @@ class MentorInfosController < ApplicationController
 
   def edit
     @user = current_user
-    @mentor_info = @user.mentor_info ? @user.mentor_info : @user.create_mentor_info
+    # @mentor_info = @user.mentor_info ? @user.mentor_info : @user.create_mentor_info
+    @mentor_info = current_user.mentor_info
 
     @categories = Category.all
     @subcategory = Subcategory.all

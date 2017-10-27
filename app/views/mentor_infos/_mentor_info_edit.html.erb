@@ -1,15 +1,8 @@
-
-
 <div>
   <%= form_for(@mentor_info) do |f| %>
     <%= f.label :summary%><br>
     <%= f.text_area :summary%><br>
-
     <%= f.collection_check_boxes :subcategories_ids, Subcategory.all, :id, :name, checked: current_user.subcategory_ids %><br>
-
     <%= f.submit "Submit Mentor Info" %>
-
   <% end %><br>
-
-
 </div>

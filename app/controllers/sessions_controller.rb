@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
           redirect_to new_mentor_info_path
         end
       else
-        redirect_to user
+        redirect_to user_path(current_user.id)
       end
 
     else
