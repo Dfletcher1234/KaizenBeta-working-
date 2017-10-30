@@ -97,3 +97,14 @@ h3  {
   position: relative;
   left: 100px;
 }
+
+
+@media (max-width: 576px){
+  .carousel-inner{
+    display: none;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+
+}

@@ -89,19 +89,15 @@ z-index: 5;
  }
 
 .title {
-  position: absolute;
-  z-index: 10;
-  padding-top: 5%;
-  padding-left: 20%;
-  margin: 20%;
-  margin-left: -10%;
-  margin-top: 1%;
+  //
+  // padding-top: 5%;
+  // padding-left: 20%;
+  // margin: 20%;
+  margin-left: 10%;
+  // margin-top: 1%;
   color:#CD5360;
-  z-index: 10;
-
  }
  .title > h3 {
    font-family: 'Baloo Chettan';
    font-size: 300% !important;
-   text-align: center;
  }

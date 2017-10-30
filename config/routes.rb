@@ -39,5 +39,7 @@ resources :mentor_infos
 
 
   get 'bookings/:id/confirm', to: 'bookings#change_status'
+  get 'search/new', to: 'search#new'
+  get 'search/create', to: 'search#create'
 
 end
