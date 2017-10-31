@@ -1,25 +1,65 @@
-<% bookings.each do |apt| %>
-  Student:<%= apt.student.first_name %> <%= apt.student.last_name %>
-  Email:<%= apt.student.email %>
 
-  <div class="mentor_booking"><br>
+<div class="container-confirmed">
+  <h2>Confirmed bookings</h2>
+  <%if bookings.pluck(:status).count(true) == 0%>
+  <%='There are no confirmed bookings.'%>
+  <%else%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Date</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% bookings.each do |apt| %>
+        <%if apt.status == true %>
+      <tr>
+        <td><%=apt.student.first_name%></td>
+        <td><%=apt.student.last_name%></td>
+        <td><%=apt.booking_date.strftime("%m/%d/%Y")%></td>
+        <td><%=apt.booking_time.strftime("%I:%M%p")%></td>
+      </tr>
+    </tbody>
+    <%end%>
+    <%end%>
+  </table>
+  <%end%>
+</div><br>
 
-    DATE: <%= apt.booking_date.strftime("%m/%d/%Y") %>
-    TIME: <%= apt.booking_time.strftime("%I:%M%p") %>
-    STATUS:
-    <% if apt.status == true%>
-      <p class="fixbutton">
-        <span style="color: green" id="Confirmed<%= apt.id%>">CONFIRMED!</span>
-      </p>
-    <% else %>
-      <% apt.status %>
-      <p class="please-dissappear">
-        <span style="color: red"><%= "THIS BOOKING IS NOT CONFIRMED"%></span>
-      </p>
-      <button class="button" id="<%= apt.id%>">CONFIRM</button>
 
-    <% end %>
-    <br>
 
-  </div>
-<%end%>
+
+<div class="container-unconfirmed">
+  <h2>Pending bookings</h2>
+  <%if bookings.pluck(:status).count(false) == 0%>
+  <%='There are no pending bookings.'%>
+  <%else%>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Confirm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% bookings.each do |apt| %>
+        <%if apt.status == false %>
+      <tr>
+        <td><%=apt.student.first_name%></td>
+        <td><%=apt.student.last_name%></td>
+        <td><%=apt.booking_date.strftime("%m/%d/%Y")%></td>
+        <td><%=apt.booking_time.strftime("%I:%M%p")%></td>
+        <td><button class="button" id="<%= apt.id%>">CONFIRM</button></td>
+      </tr>
+    </tbody>
+    <%end%>
+    <%end%>
+  </table>
+  <%end%>
+</div>

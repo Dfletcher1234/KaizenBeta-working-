@@ -81,21 +81,36 @@ h3  {
 
 }
 
-#mentor_info_summary{
-  width: 50%;
-  padding-left: 50px;
-}
+// #mentor_info_summary{
+//   width: 50%;
+//   padding-left: 50px;
+// }
 
 .student-details {
-  float: right;
-  position: relative;
-  right: 200px;
-  margin-top: -580px ;
+  width: 700px;
+  margin-left: 30px;
 }
 
 .mentor-info-container {
-  position: relative;
-  left: 100px;
+
+}
+
+.container-fluid {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.mentor-picture {
+ width: 200px;
+}
+
+.av-button {
+  padding-top:10px;
+}
+
+ul {
+  list-style: none;
 }
 
 
