@@ -1,13 +1,17 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+
+
 <div >
   <%= form_for  @booking do |f| %>
 
    <%= f.label :booking_date %><br>
-   <%= f.text_field :booking_date, id: "date",type: "date" %>
+   <%= f.text_field :booking_date, id: "date",type: "date", required: true%>
 
    <br>
 
    <%= f.label :booking_time %><br>
-   <%= f.text_field :booking_time, id: "time", type:"time"%>
+   <%= f.text_field :booking_time, class: "timepicker", value: Time.now.strftime("%I:%M %p"), required: true%>
    <br>
 
    <%= f.label :mentor_id %> <br>
@@ -17,3 +21,15 @@
 
   <% end %>
   </div>
+  <script type="text/javascript">
+  $('.timepicker').timepicker({
+    timeFormat: 'h:mm p',
+    interval: 30,
+    minTime: '6',
+    maxTime: '11:00pm',
+    startTime: '6:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+  });
+  </script>
