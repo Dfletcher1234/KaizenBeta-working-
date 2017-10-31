@@ -11,7 +11,7 @@ class SearchController < ApplicationController
   private
 
   def params_search
-    params.require(:search).permit(:name)
+    params.require(:search).permit(:Subcategory, :name)
 
   end
 

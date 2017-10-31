@@ -1,6 +1,11 @@
-<% @results.each do |result|%>
-  <%= result.name %><br>
-<% end %>
+
+
+
+
 <% if @results.blank? %>
-  <h4>There are no Subcategories containing the term <%= params[:search] %>.</h4>
+  <h4>Sorry, there are no results matching your search <%= params[:search] %>.</h4>
+  <%else%>
+  <script type="text/javascript">
+     window.location.href="/subcategories/<%=@results.first.id%>"  // put your correct path in a string here
+  </script>
 <% end %>
