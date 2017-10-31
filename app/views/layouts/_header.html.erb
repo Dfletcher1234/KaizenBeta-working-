@@ -44,8 +44,6 @@
           </div>
         </li>
 
-
-
 <li class="nav-item">
   <%= link_to "Log Out", logout_path, method: :delete, class: "nav-link" %>
 </li>
@@ -58,14 +56,14 @@
     <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
   </li>
 
-
 <% end%>
-
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+      <%=form_tag('/search/create', method: 'get', class: "form-inline my-2 my-lg-0") do %>
+        <%= text_field_tag 'search' %>
+        <%= submit_tag 'search', class: "btn btn-outline-success my-2 my-sm-0"%>
+      <%end %>
+
   </div>
 
 </nav>

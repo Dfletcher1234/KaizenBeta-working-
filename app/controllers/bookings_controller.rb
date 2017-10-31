@@ -12,9 +12,12 @@ class BookingsController < ApplicationController
     @booking.booking_time = params[:booking][:booking_time]
     @booking.status = false
 
-    if @booking.save!
+    if @booking.save
       flash[:notice] = "Booking successfully created"
       redirect_to root_url
+    else
+      flash[:notice] = "Unable to create booking, please check date"
+      redirect_to mentor_info_path(params[:booking][:mentor_id])
     end
   end
 
@@ -39,7 +42,7 @@ class BookingsController < ApplicationController
  end
 
  def notification
-   return "not logged_in" unless current_user 
+   return "not logged_in" unless current_user
    if current_user.is_mentor
      notifications = current_user.mentor_bookings.unconfirmed
      url = "/mentor_infos/#{current_user.id}"

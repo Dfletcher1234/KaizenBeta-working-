@@ -4,18 +4,15 @@
   <div class="row">
     <% near_me(@subcategory).each do |mentor| %>
       <%if mentor.mentor_info.availability == true%>
-        <div class="card col-md-4">
-          <p class="card-text">
-            <div class="card-body">
-              <h4 class="card-title">
-                <%= link_to mentor.first_name, mentor_info_path(mentor.id) %>
-              </h4>
-              <div class="profilepic">
-                <%= image_tag mentor.avatar.url (:medium)%>
-              </div>
-            </div>
-          </p>
+      <div class="card" >
+                <%= image_tag mentor.avatar.url(:medium), class: "card-img-top", height: "300px"%>
+        <div class="card-body">
+          <h4 class="card-title"><%= link_to mentor.first_name, mentor_info_path(mentor.id) %></h4>
+          <p class="card-text"> <%=mentor.mentor_info.summary%></p>
+          <%= link_to "Profile", mentor_info_path(mentor.id), class: "btn btn-primary" %>
         </div>
+      </div>
+
       <%end%>
     <%end%>
    </div>

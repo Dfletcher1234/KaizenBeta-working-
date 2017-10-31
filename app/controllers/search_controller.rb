@@ -7,6 +7,12 @@ class SearchController < ApplicationController
   def new
 
   end
-  
+
+  private
+
+  def params_search
+    params.require(:search).permit(:Subcategory, :name)
+
+  end
 
 end
