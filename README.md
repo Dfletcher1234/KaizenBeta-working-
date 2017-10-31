@@ -1,25 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to 'Kaizen App'
 
-Things you may want to cover:
+Do you want to learn a new skill?
+Do you need assistance cooking dinner for a date?
+Are you bored?
 
-* Ruby version
+If you've answered 'yes' to any of these questions, you need 'Kaizen'
 
-* System dependencies
+'Kaizen App' provides mentors to individuals on a casual basis.
 
-* Configuration
+To experience Kaizen in its finest, visit our URL or run rails db:setup and run
+the app locally.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# KaizenAlpha
+-Create an account as a mentor or a student
+-Log in
+-Find tutors in your area in a subject of your choosing
+-Send an appointment request and wait for a confirmation
+-Learn that new skill!
