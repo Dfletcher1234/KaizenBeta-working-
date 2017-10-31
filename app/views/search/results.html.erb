@@ -1,3 +1,6 @@
 <% @results.each do |result|%>
   <%= result.name %><br>
 <% end %>
+<% if @results.blank? %>
+  <h4>There are no Subcategories containing the term <%= params[:search] %>.</h4>
+<% end %>
