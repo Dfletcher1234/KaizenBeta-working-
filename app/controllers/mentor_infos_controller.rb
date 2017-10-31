@@ -1,5 +1,5 @@
 class MentorInfosController < ApplicationController
-  before_action :en_logged_in
+  before_action :ensure_logged_in
   before_action :is_mentor, only: [:create,:update,:edit]
   def index
     @mentor_infos = MentorInfo.all
@@ -8,10 +8,16 @@ class MentorInfosController < ApplicationController
   def show
     @user = current_user
     @mentor = User.find(params[:id])
-    @mentor_info = @mentor.mentor_info
 
+    if @user.is_mentor && @mentor.id != @user.id
+      flash[:notice] = "Can't view another mentors profile page!"
+      redirect_to mentor_info_path(current_user.id)
+    end
+
+    @mentor_info = @mentor.mentor_info
     @bookings = Booking.all
     @booking = Booking.new
+
   end
 
   def new
@@ -49,7 +55,7 @@ class MentorInfosController < ApplicationController
     subcat_add.each do |subcat|
       @user.subcategories << subcat
     end
-      redirect_to mentor_info_path(@user.mentor_info)
+      redirect_to mentor_info_path(@user.id)
   end
 
 

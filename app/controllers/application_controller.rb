@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-  def en_logged_in
+  def ensure_logged_in
     if !current_user
       redirect_to root_path
     end

@@ -1,5 +1,5 @@
 <div class="alert alert-success">
-  <strong class="welcome">Welcome <%= @mentor.first_name%>!</strong>
+  <strong class="welcome">Welcome <%= current_user.first_name%>!</strong>
 </div>
 
 <div class="container-fluid">
@@ -17,7 +17,7 @@
         <%= render 'bookings/new' %>
       <%end%>
     </div>
- 
+
     <% if @mentor.mentor_info %>
     <h3>Summary:</h3> <%= @mentor.mentor_info.summary %><br>
     <ul class="mentorcats">

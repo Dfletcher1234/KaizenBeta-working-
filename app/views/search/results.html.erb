@@ -1,11 +1,7 @@
 
-
-
-
 <% if @results.blank? %>
   <h4>Sorry, there are no results matching your search <%= params[:search] %>.</h4>
-  <%else%>
+<%else%>
   <script type="text/javascript">
-     window.location.href="/subcategories/<%=@results.first.id%>"  // put your correct path in a string here
-  </script>
+  window.location.href="/subcategories/<%=@results.first.id%>"  // put your correct path in a string here</script>
 <% end %>
