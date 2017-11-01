@@ -1,4 +1,36 @@
 
+<% if logged_in? == false  %>
+<div class="modal show" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Welcome to Kaizen</h4>
+        </div>
+        <div class="modal-body">
+          <p>Find a mentor in your neighbourhood to teach you a new skill</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
@@ -31,6 +63,8 @@
 
        </div>
      </div>
+
+
 
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
