@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
   var availabilityButton = document.getElementById('your_id');
   var checkField = document.querySelector('checkbox');
 
-  availabilityButton.addEventListener('click', function() {
+  availabilityButton.addEventListener('mousedown', function() {
+
   // if checked then set availiablity column to true
     $.ajax({
         url: '/mentor_availabilities',

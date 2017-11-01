@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       console.log(button);
       button.style.display = "none";
       button.parentNode.innerText += "CONFIRMED"
-    }).failure(function(response){
+    }).fail(function(response){
       console.log("failed to render response");
     }).always(function(response){
       console.log("success kinda");
