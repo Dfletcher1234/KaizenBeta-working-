@@ -8,4 +8,15 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "navbar" do
+    get "/"
+    expected = "Log In"
+    assert_select "ul.navbar-nav li.nav-item", expected
+  end
+
+  # test "test login" do
+  #   get "/login"
+  #   expected
+  # end
+
 end
