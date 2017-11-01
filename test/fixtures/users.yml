@@ -16,9 +16,9 @@ student:
   postal_code: M4Y0A3
 
 mentor:
-    first_name: Viki
-    last_name: V
-    email: viki@example.com
+    first_name: Jesse
+    last_name: Oils
+    email: jesse@oils.com
     is_mentor: true
-    password_digest: 123456
+    password_digest: "$2a$10$OEEA2woh6KUeCUD6dE35dumT6q8LQU8nv8o7ZnVttOkb6Lo/xIz/i"
     postal_code: M4Y0A3
