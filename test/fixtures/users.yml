@@ -17,7 +17,7 @@ student:
 
 mentor:
     first_name: Jesse
-    last_name: Oils
+  last_name: Oils
     email: jesse@oils.com
     is_mentor: true
     password_digest: "$2a$10$OEEA2woh6KUeCUD6dE35dumT6q8LQU8nv8o7ZnVttOkb6Lo/xIz/i"
