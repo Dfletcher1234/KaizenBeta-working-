@@ -23,6 +23,7 @@
     <% if @mentor.mentor_info %>
     <h3>Summary:</h3> <%= @mentor.mentor_info.summary %><br>
     <ul class="mentorcats">
+      <h2>Things I Teach:</h2>
       <% @mentor.subcategories.each do |subcat| %>
         <li><%= subcat.name %></li>
       <% end %>
